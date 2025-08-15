@@ -1,6 +1,7 @@
 package org.example.java5n_sof3022_03.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "products")
@@ -10,6 +11,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Size(min = 2, max = 30)
     private String name;
 
     private Double price;
