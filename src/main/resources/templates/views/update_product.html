@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Product</title>
+</head>
+<body>
+<h3>Update Product</h3>
+<form action="#" th:action="@{/products/updateProduct}" th:object="${product}" method="post">
+    <input type="number" th:field="*{id}" hidden>
+    <input type="text" th:field="*{name}" placeholder="Product name">
+    <select th:field="*{category}">
+        <option th:each="c : ${categories}"
+                th:value="${c.id}"
+                th:utext="${c.name}"
+                th:selected="${c.id} == ${product.category.id}">
+        </option>
+    </select>
+    <input type="number" step="0.001" th:field="*{price}" placeholder="Product price">
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>
