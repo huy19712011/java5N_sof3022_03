@@ -1,6 +1,8 @@
 package org.example.java5n_sof3022_03.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -14,6 +16,8 @@ public class Product {
     @Size(min = 2, max = 30)
     private String name;
 
+    @Positive
+    @Max(20)
     private Double price;
 
     @ManyToOne
